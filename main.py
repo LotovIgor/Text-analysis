@@ -1,3 +1,8 @@
+"""Case-study #3 Анализ текста
+Разработчики:
+Лотов И.К.
+
+"""
 from textblob import *
 
 
@@ -37,7 +42,7 @@ def sent(text):
 
 
 def main():
-    text = input()
+    text = input('Введите текст: ')
     cnt_s = count_sents(text)
     cnt_w = count_words(text)
     cnt_sy = count_syll(text)
