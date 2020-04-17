@@ -25,9 +25,15 @@ def sent(text):
     ru_blob = TextBlob(text.lower())
     lang = ru_blob.detect_language()
     en_blob = ru_blob.translate(from_lang=lang, to='en')
-    print(en_blob)
     sub = en_blob.sentiment.subjectivity * 100
-    print(sub)
+    pol = en_blob.sentiment.polarity
+    print('Объективность: ', 100 - sub, '%', sep='')
+    if pol <= -0.5:
+        print('Тональность текста: негативный')
+    elif pol <= 0.5:
+        print('Тональность текста: нейтральный')
+    else:
+        print('Тональность текста: позитивный')
 
 
 def main():
